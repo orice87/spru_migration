@@ -1,0 +1,12 @@
+{
+  "name": "spru_migration",
+  "version": "1.0.0",
+  "main": "run.js",
+  "repository": "git@github.com:orice87/spru_migration.git",
+  "author": "Jiří Novák <email@novak-jiri.cz>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mysql2": "^3.14.0"
+  }
+}
