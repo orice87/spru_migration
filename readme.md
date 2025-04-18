@@ -6,6 +6,17 @@
 - stable internet connection
 - stable computer and power source
 
+## How does it work?
+1. Migration script connects to both databases. If either source or target database are unavailable, the migration won't continue.
+2. All regions, cities, schools, groups and users in the target database are deleted, in order to avoid duplications / inconsistency.
+3. All regions, cities, schools, groups and users are transferred from source database to target database in batches which size can defined via .env configuration "PAGINATION". 
+4. All users with role "4" (university), are assigned a "group_number_entered" value of 12, in order to ensure compatibility with targeted content. 
+
+### Notes
+
+- If the migration script fails at any point, all changes are rolled back automatically. This eliminates almost all risks associated with running the migration.
+- It is recommended to use read-only credentials for the source database, in order to eliminate risk of human error while filling the migration script configuration.
+
 ## Step-by-step guide
 1. Install dependencies: `yarn install`.
 2. Create .env file from the template `cp .env.example .env`.
